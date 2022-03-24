@@ -1,3 +1,5 @@
+
+//Default face match & liveness scan error messages.
 struct LivenessConfigs {
     static let feedbackTextSize: Float = 18.0
 

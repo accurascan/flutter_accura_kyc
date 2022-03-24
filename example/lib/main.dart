@@ -49,11 +49,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
     requestForPermission();
     getMetaData();
   }
 
+  //Code for get permissions for access camera, storage & microphone
   Future<bool> requestForPermission() async {
     List<bool> grantStatus = [];
     var status = true;
@@ -80,28 +80,7 @@ class _MyAppState extends State<MyApp> {
     return status;
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await FlutterAccuraKyc.platformVersion ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
-
+  //Code for get current app oriantation.
   String getOrientation() {
     if (MediaQuery.of(context).orientation.toString().contains('landscape')) {
       return 'landscape';
@@ -116,6 +95,7 @@ class _MyAppState extends State<MyApp> {
         toastLength: Toast.LENGTH_SHORT);
   }
 
+  //Code for get license information from SDK.
   Future<void> getMetaData() async {
     try {
       await FlutterAccuraKyc.getMetaData()
@@ -154,6 +134,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  //Code for setup document scanning messages & scan config.
   Future<void> setupAccuraConfig() async {
     try {
       var config = {
@@ -238,6 +219,7 @@ class _MyAppState extends State<MyApp> {
     } on PlatformException {}
   }
 
+  //Code for scan OCR document scanning with country & card information.
   Future<void> startOCR() async {
     try {
       var config = [
@@ -265,6 +247,7 @@ class _MyAppState extends State<MyApp> {
     } on PlatformException {}
   }
 
+  //Code for scan MRZ document with contry list & MRZ type
   Future<void> startMRZ() async {
     try {
       var config = [
@@ -290,6 +273,7 @@ class _MyAppState extends State<MyApp> {
     } on PlatformException {}
   }
 
+  //Code for scan Barcode with it type.
   Future<void> startBarcode() async {
     try {
       var config = [
@@ -314,6 +298,7 @@ class _MyAppState extends State<MyApp> {
     } on PlatformException {}
   }
 
+  //Code for scan Bank card
   Future<void> startBankCard() async {
     try {
       var config = [
@@ -397,8 +382,10 @@ class _MyAppState extends State<MyApp> {
             padding: EdgeInsets.all(20),
             child: Center(
               child: sdkConfig == null
+                  //It will display progress bar when app loading the licenses
                   ? CircularProgressIndicator()
                   : !sdkConfig['isValid']
+                      //License is not valid
                       ? Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -413,6 +400,7 @@ class _MyAppState extends State<MyApp> {
                             ),
                           ],
                         )
+                      //License is not valid
                       : Column(
                           children: [
                             //Code for OCR

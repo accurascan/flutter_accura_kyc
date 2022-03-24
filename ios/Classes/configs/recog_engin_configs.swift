@@ -1,3 +1,5 @@
+
+//Default recog engine config.
 struct EnginConfigs {
     static var rg_setBlurPercentage: Int32 = 62
 

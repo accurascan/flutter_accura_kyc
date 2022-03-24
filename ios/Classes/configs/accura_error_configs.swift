@@ -1,3 +1,5 @@
+
+//Default scan error message
 struct AccuraErrorType {
     static let ACCURA_ERROR_CODE_MOTION = "Keep Document Steady"
 

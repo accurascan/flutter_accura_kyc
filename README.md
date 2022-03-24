@@ -629,7 +629,7 @@ For updating your new AAR file replace the above file.
 
 **Activities Modification :-**
 
-File: /flutter_accura_kyc/android/src/main/java/com/reactnativeaccurakyc
+File: /flutter_accura_kyc/android/src/main/java/com/accura/flutter_accura_kyc
 
 1. FaceMatchActivity.java
 2. OcrActivity.java
@@ -666,27 +666,27 @@ All the layouts are modifiable. And any android developer can modify these activ
 **Structure Modification :-**
 
 - ### Accura Error Messages
-File: /flutter_accura_kyc/ios/configs/accura_error_configs.swift
+File: /flutter_accura_kyc/ios/Classes/configs/accura_error_configs.swift
 
 You can change default settings here.
 - ### Accura Scan Messages
-File: /flutter_accura_kyc/ios/configs/accura_scan_configs.swift
+File: /flutter_accura_kyc/ios/Classes/configs/accura_scan_configs.swift
 
 You can change default settings here.
 - ### Accura Common Strings
-File: /flutter_accura_kyc/ios/configs/accura_titles.swift
+File: /flutter_accura_kyc/ios/Classes/configs/accura_titles.swift
 
 You can change default settings here.
 - ### Face Match 
-File: /flutter_accura_kyc/ios/configs/face_match_config.swift
+File: /flutter_accura_kyc/ios/Classes/configs/face_match_config.swift
 
 You can change default settings here.
 - ### Liveness 
-File: /flutter_accura_kyc/ios/liveness_config.swift
+File: /flutter_accura_kyc/ios/Classes/configs/liveness_config.swift
 
 You can change default settings here.
 - ### Recog Engine Initial Settings
-File: /flutter_accura_kyc/ios/recog_engine_config.swift
+File: /flutter_accura_kyc/ios/Classes/configs/recog_engine_config.swift
 
 ## Contributing
 

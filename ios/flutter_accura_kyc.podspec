@@ -20,7 +20,8 @@ A new flutter plugin project.
 
   s.dependency 'Flutter'
   s.static_framework = true
-  s.dependency "AccuraKYC-Hybrid","3.0.2" 
+  # s.dependency "AccuraKYC-Hybrid","3.0.2" 
+  s.dependency "AccuraKYC-Hybrid-sim","3.1.1" 
   s.platform = :ios, '12.0'
 
   # Flutter.framework does not contain a i386 slice.

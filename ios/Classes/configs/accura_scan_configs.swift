@@ -1,3 +1,5 @@
+
+//Default scan config & title messages
 struct ScanConfigs {
     static var SCAN_TITLE_OCR_FRONT = "Scan Front Side of %@"
 

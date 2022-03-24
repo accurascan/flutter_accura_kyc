@@ -51,6 +51,7 @@ class _ResultScreenState extends State<ResultScreen> {
     return 'portrait'; //MediaQuery.of(context).orientation.toString();
   }
 
+  //Code for Face match custom with messages & face config.
   Future<void> startFaceMatch() async {
     try {
       var accuraConfs = {
@@ -114,6 +115,7 @@ class _ResultScreenState extends State<ResultScreen> {
     } on PlatformException {}
   }
 
+  //Code for liveness with custom messages & face config.
   Future<void> startLiveness() async {
     try {
       var accuraConfs = {
@@ -151,7 +153,7 @@ class _ResultScreenState extends State<ResultScreen> {
         // <!--// Set max percentage for glare or set it -1 to remove glare filter-->
         "setGlarePercentage_1": -1,
         "isSaveImage": true,
-        "liveness_url": 'https://api2.accurascan.com:8001/upload.php',
+        "liveness_url": 'your liveness url',
         // <!--// set containt type of your liveness url. like "form_data" or "raw_data". Default containt type is "form_data" -->
         "contentType": 'form_data',
         //        New SDK changes in configs
@@ -231,6 +233,7 @@ class _ResultScreenState extends State<ResultScreen> {
     );
   }
 
+  //Code for display face images.
   Widget getImageOnDocument() {
     return new Column(
       children: [
@@ -390,6 +393,7 @@ class _ResultScreenState extends State<ResultScreen> {
     );
   }
 
+  //Code for display document image for front & back.
   Widget getImagesWidgets() {
     return new Column(
         children: ["front_img", "back_img"]
@@ -423,6 +427,7 @@ class _ResultScreenState extends State<ResultScreen> {
             .toList());
   }
 
+  //Code for display MRZ, OCR, Barcode, BankCard data
   Widget getDataWidgets() {
     return new Column(
         children: ["front_data", "back_data"]

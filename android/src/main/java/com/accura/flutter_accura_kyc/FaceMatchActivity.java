@@ -29,8 +29,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 
-
-
+//Activity for FaceMatch & liveness
 public class FaceMatchActivity extends AppCompatActivity implements FaceHelper.FaceMatchCallBack, FaceCallback {
     FaceHelper faceHelper;
     Bitmap face1, detectFace1, detectFace2, face2;

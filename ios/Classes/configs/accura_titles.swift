@@ -1,3 +1,5 @@
+
+//Default scan config & title messages
 struct AccuraTtiles {
     static let passport_mrz = "Passport MRZ"
 

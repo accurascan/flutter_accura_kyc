@@ -55,6 +55,7 @@ import java.util.List;
 import static com.accura.flutter_accura_kyc.FlutterAccuraKycPlugin.getImageUri;
 import static com.accura.flutter_accura_kyc.FlutterAccuraKycPlugin.getSaltString;
 
+//Activity for document scanning features.
 public class OcrActivity extends SensorsActivity implements OcrCallback {
 
     private static final String TAG = OcrActivity.class.getSimpleName();

@@ -3,6 +3,7 @@ import UIKit
 import AVFoundation
 import AccuraKYC
 
+//View controller for document scanning.
 class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var _viewLayer: UIView!

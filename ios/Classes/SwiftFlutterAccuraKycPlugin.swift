@@ -32,6 +32,7 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
 
+    //Code for clean face match data. 
     static func cleanFaceData() {
         gl.face1 = nil
         gl.face2 = nil
@@ -153,6 +154,7 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         SwiftFlutterAccuraKycPlugin.cleanFaceData()
     }
 
+    //Code for get iOS license information from framework.
     func getMetaData(_ callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
@@ -218,6 +220,7 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         }
     }
 
+    //Code for setup SDK config and custom messages.
     func setupAccuraConfig(_ argsNew: NSArray, callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
@@ -227,6 +230,7 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         self.goNativeCallBack!("Messages setup successfully")
     }
     
+    //Code for scan MRZ documents in iOS.
     func startMRZ(_ argsNew: NSArray, callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
@@ -235,7 +239,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         ScanConfigs.accuraConfigs = self.goNativeArgs[0] as! [String: Any]
         ScanConfigs.mrzType = self.goNativeArgs[1] as! String
         ScanConfigs.mrzCountryList = self.goNativeArgs[2] as! String
-//        ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs[3] as! String
         ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs.count > 3 ? self.goNativeArgs[3] as! String : self.defaultAppOriantation
         gl.type = "mrz"
         DispatchQueue.main.async {
@@ -258,25 +261,25 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         }
     }
     
+    //Code for scan bank card in iOS.
     func startBankCard(_ argsNew: NSArray, callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
         self.goNativeArgs = argsNew;
         gl.type = "bankcard"
         ScanConfigs.accuraConfigs = self.goNativeArgs[0] as! [String: Any]
-//        ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs[1] as! String
         ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs.count > 1 ? self.goNativeArgs[1] as! String : self.defaultAppOriantation
         DispatchQueue.main.async {
             let viewController = UIStoryboard(name: "MainStoryboard_iPhone", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
             viewController.callBack = self.goNativeCallBack
             viewController.isCheckScanOCR = true
-    //        viewController.countryid = 31
             viewController.cardType = 3
             viewController.reactViewController = self.viewController
             self.checkForDownloadMedia(vc: viewController)
         }
     }
 
+    //Code for scan barcode in iOS.
     func startBarcode(_ argsNew: NSArray, callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
@@ -284,7 +287,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         gl.type = "barcode"
         ScanConfigs.accuraConfigs = self.goNativeArgs[0] as! [String: Any]
         ScanConfigs.barcodeType = self.goNativeArgs[1] as! String
-//        ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs[2] as! String
         ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs.count > 2 ? self.goNativeArgs[2] as! String : self.defaultAppOriantation
         DispatchQueue.main.async {
             let viewController = UIStoryboard(name: "MainStoryboard_iPhone", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
@@ -295,6 +297,7 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         }
     }
 
+    //Code for scan OCR documents with country & card info in iOS.
     func startOcrWithCard(_ argsNew: NSArray, callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
@@ -305,7 +308,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         ScanConfigs.CardId = self.goNativeArgs[2] as! Int
         ScanConfigs.CardName = self.goNativeArgs[3] as! String
         ScanConfigs.CardType = self.goNativeArgs[4] as! Int
-//        ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs[5] as! String
         ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs.count > 5 ? self.goNativeArgs[5] as! String : self.defaultAppOriantation
         DispatchQueue.main.async {
             let viewController = UIStoryboard(name: "MainStoryboard_iPhone", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
@@ -323,6 +325,7 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         }
     }
 
+    //Code for start liveness check
     func startLiveness(_ argsNew: NSArray, callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
@@ -334,7 +337,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         gl.face2Detect = nil
         gl.withFace = true
         ScanConfigs.accuraConfigs = self.goNativeArgs[0] as! [String: Any]
-//        ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs[2] as! String
         ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs.count > 2 ? self.goNativeArgs[2] as! String : self.defaultAppOriantation
         DispatchQueue.main.async {
             let LVController = UIStoryboard(name: "MainStoryboard_iPhone", bundle: nil).instantiateViewController(withIdentifier: "LVController") as! LVController
@@ -355,6 +357,7 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
         }
     }
 
+    //Code for start face match check
     func startFaceMatch(_ argsNew: NSArray, callback: @escaping FlutterResult) {
 
         self.goNativeCallBack = callback;
@@ -374,7 +377,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
             return
         }
         ScanConfigs.accuraConfigs = self.goNativeArgs[0] as! [String: Any]
-//        ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs[2] as! String
         ScanConfigs.accuraConfigs["app_orientation"] = self.goNativeArgs.count > 2 ? self.goNativeArgs[2] as! String : self.defaultAppOriantation
         DispatchQueue.main.async {
             let FMController = UIStoryboard(name: "MainStoryboard_iPhone", bundle: nil).instantiateViewController(withIdentifier: "FMController") as! FMController
@@ -434,8 +436,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
                                 vc.modalPresentationStyle = .fullScreen
                                 getTopMostViewController()?.present(vc, animated: true, completion: nil)
                             }
-//                            vc.modalPresentationStyle = .fullScreen
-//                            self.viewController?.present(vc, animated: true, completion: { })
                         }
                     } catch let error as NSError {
                         gl.audio = nil
@@ -445,8 +445,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
                                 vc.modalPresentationStyle = .fullScreen
                                 getTopMostViewController()?.present(vc, animated: true, completion: nil)
                             }
-//                            vc.modalPresentationStyle = .fullScreen
-//                            self.viewController?.present(vc, animated: true, completion: { })
                         }
                     }
                 }).resume()
@@ -455,8 +453,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
                     vc.modalPresentationStyle = .fullScreen
                     getTopMostViewController()?.present(vc, animated: true, completion: nil)
                 }
-//                vc.modalPresentationStyle = .fullScreen
-//                self.viewController?.present(vc, animated: true, completion: { })
             }
 
         } else {
@@ -464,8 +460,6 @@ public class SwiftFlutterAccuraKycPlugin: NSObject, FlutterPlugin {
                 vc.modalPresentationStyle = .fullScreen
                 getTopMostViewController()?.present(vc, animated: true, completion: nil)
             }
-//            vc.modalPresentationStyle = .fullScreen
-//            self.viewController?.present(vc, animated: true, completion: { })
         }
     }
     
@@ -495,7 +489,7 @@ func getTopMostViewController() -> UIViewController? {
     return topMostViewController
 }
 
-
+//Code for custom navigation header style
 class NavigationController: UINavigationController {
 
     override var shouldAutorotate: Bool {

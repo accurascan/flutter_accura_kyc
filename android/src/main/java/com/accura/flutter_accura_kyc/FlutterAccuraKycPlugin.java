@@ -94,6 +94,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
         getMetaData(result);
       } else if (call.method.equals("cleanFaceMatch")) {
 
+        //Code for clean face match data. 
         FlutterAccuraKycPlugin.face1 = null;
         FlutterAccuraKycPlugin.face2 = null;
         FlutterAccuraKycPlugin.isLivenessGetVideo = false;
@@ -130,6 +131,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     }
   }
 
+  //Code for get Android license information from SDK.
   public void getMetaData(Result result) throws JSONException {
 
     ocrCL = result;
@@ -188,6 +190,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     return;
   }
 
+  //Code for setup SDK config and custom messages.
   public void setupAccuraConfig(JSONArray args, Result result) throws JSONException {
 
     ocrCL = result;
@@ -197,6 +200,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     return;
   }
 
+  //Code for scan OCR documents with country & card info in Android.
   public void startOcrWithCard(JSONArray args, Result result) throws JSONException {
 
     ocrCL = result;
@@ -218,6 +222,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     return;
   }
 
+  //Code for scan MRZ documents in Android.
   public void startMRZ(JSONArray args, Result result) throws JSONException {
 
     ocrCL = result;
@@ -239,6 +244,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     return;
   }
 
+  //Code for scan bank card in Android.
   public void startBankCard(JSONArray args, Result result) throws JSONException {
 
     ocrCL = result;
@@ -252,6 +258,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     return;
   }
 
+  //Code for scan barcode in Android.
   public void startBarcode(JSONArray args, Result result) throws JSONException {
 
     ocrCL = result;
@@ -267,6 +274,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     return;
   }
 
+  //Code for start face match check
   public void startFaceMatch(JSONArray args, Result result) throws JSONException {
 
     faceCL = result;
@@ -282,6 +290,7 @@ public class FlutterAccuraKycPlugin implements FlutterPlugin, MethodCallHandler,
     return;
   }
 
+  //Code for start liveness check
   public void startLiveness(JSONArray args, Result result) throws JSONException {
 
     faceCL = result;

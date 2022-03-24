@@ -1,4 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
+
+<!-- Default face match & liveness scan error messages. -->
 <resources>
 
 <!--    new SDK changes by ANIL-->

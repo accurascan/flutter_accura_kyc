@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- Default recog engine config. -->
 <resources>
 <!--    //0 for clean document and 100 for Blurry document-->
     <integer name="rg_setBlurPercentage">62</integer>

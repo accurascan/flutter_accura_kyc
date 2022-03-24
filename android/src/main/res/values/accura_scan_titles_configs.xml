@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!-- //Default scan config & title messages -->
 <resources>
     <string name="SCAN_TITLE_OCR_FRONT">Scan Front Side of %s</string>
     <string name="SCAN_TITLE_OCR_BACK">Scan Back Side of %s</string>
