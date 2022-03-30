@@ -6,6 +6,12 @@ This package is for digital user verification system powered by Accura Scan.
 ```sh
 flutter pub add flutter_accura_kyc
 ```
+OR
+```sh
+flutter pub add <absolute-path-to-(flutter_accura_kyc)-folder>
+```
+### Note:- 
+Download package from git and add accura package into your project via local path 'pub add' command.
 
 ## Setup Android
 ### Add this permissions into Android AndroidManifest.xml file.
@@ -110,11 +116,11 @@ android {
 ## Usage
 
 Import react native library into file.
-```js
+```dart
 import 'package:flutter_accura_kyc/flutter_accura_kyc.dart';
 ```
 ### ➜ Get license configuration from SDK. It returns all active functionalities of your license.
-```js
+```dart
 await FlutterAccuraKyc.getMetaData()
     .then((value) => {
         dynamic result = json.decode(value);
@@ -138,7 +144,7 @@ await FlutterAccuraKyc.getMetaData()
     }
 
 ### ➜ Method for setup custom setup & messages to Accura SDK.
-```js
+```dart
 let config = { 
     "ACCURA_ERROR_CODE_MOTION": 'Keep Document Steady',
     "ACCURA_ERROR_CODE_DOCUMENT_IN_FRAME": 'Keep document in frame',
@@ -209,7 +215,7 @@ await FlutterAccuraKyc.setupAccuraConfig([config])
 - Error: String<Any Error Message>
 
 ### ➜ Method for scan MRZ documents.
-```js
+```dart
 let config = [{ enableLogs: false }, MRZType, CountryList, AppOrientation]
 await FlutterAccuraKyc.startMRZ(config)
         .then((value) => {
@@ -237,7 +243,7 @@ await FlutterAccuraKyc.startMRZ(config)
 - Error: String<Any Error Message>
 
 ### ➜ Method for scan OCR documents.
-```js
+```dart
 let config = [{ enableLogs: false }, CountryId, CardId, CardName, CardType, AppOrientation]
 await FlutterAccuraKyc.startOcrWithCard(config)
         .then((value) => {
@@ -263,7 +269,7 @@ await FlutterAccuraKyc.startOcrWithCard(config)
 - Error: String<Any Error Message>
 
 ### ➜ Method for scan barcode.
-```js
+```dart
 let config = [{ enableLogs: false }, BarcodeType, AppOrientation]
 await FlutterAccuraKyc.startBarcode(config)
         .then((value) => {
@@ -283,7 +289,7 @@ await FlutterAccuraKyc.startBarcode(config)
 - Error: String<Any Error Message>
 
 ### ➜ Method for scan bankcard.
-```js
+```dart
 let passArgs = [{ enableLogs: false }, AppOrientation]
 await FlutterAccuraKyc.startBankCard(config)
         .then((value) => {
@@ -301,7 +307,7 @@ await FlutterAccuraKyc.startBankCard(config)
 - Error: String<Any Error Message>
 
 ### ➜ Method for get face match percentages between two face.
-```js
+```dart
 var accuraConfs = { enableLogs: false, with_face: true, face_uri: 'uri of face'};
 var config = {
     "feedbackTextSize": 18,
@@ -357,7 +363,7 @@ await FlutterAccuraKyc.startFaceMatch(passArgs)
 - Error: String<Any Error Message>
 
 ### ➜ Method for liveness check.
-```js
+```dart
 var accuraConfs = { enableLogs: false, with_face: true, face_uri: 'uri of face' };
 var config = {
     "feedbackTextSize": 18,
