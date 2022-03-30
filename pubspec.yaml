@@ -1,5 +1,5 @@
 name: flutter_accura_kyc
-description: A new flutter plugin project.
+description: This package is for digital user verification system powered by Accura Scan.
 version: 0.0.1
 homepage: https://github.com/accurascan/flutter_accura_kyc.git
 
